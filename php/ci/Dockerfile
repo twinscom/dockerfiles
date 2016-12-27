@@ -34,7 +34,9 @@ RUN php /tmp/composer-setup.php \
     --version=${COMPOSER_VERSION} \
     && rm -rf /tmp/composer-setup.php
 
-# Xdebug
+################################################################################
+# Xdebug                                                                       #
+################################################################################
 RUN apk add --no-cache $PHPIZE_DEPS
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
