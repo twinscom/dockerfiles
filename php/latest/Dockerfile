@@ -33,3 +33,11 @@ RUN php /tmp/composer-setup.php \
     --filename=composer \
     --version=${COMPOSER_VERSION} \
     && rm -rf /tmp/composer-setup.php
+
+################################################################################
+# SSH                                                                          #
+################################################################################
+
+RUN mkdir /root/.ssh/ \
+    && ssh-keyscan github.com gitlab.com bitbucket.org \
+    >> /root/.ssh/known_hosts
