@@ -45,7 +45,7 @@ RUN mkdir /root/.ssh/ \
 ################################################################################
 # Xdebug                                                                       #
 ################################################################################
-RUN apk add --no-cache $PHPIZE_DEPS
-RUN pecl install xdebug
-RUN docker-php-ext-enable xdebug
-RUN apk del $PHPIZE_DEPS
+RUN apk add --no-cache $PHPIZE_DEPS \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug \
+    && apk del $PHPIZE_DEPS
