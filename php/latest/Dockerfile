@@ -43,3 +43,16 @@ RUN php /tmp/composer-setup.php \
 RUN mkdir /root/.ssh/ \
     && ssh-keyscan github.com gitlab.com bitbucket.org \
     >> /root/.ssh/known_hosts
+
+################################################################################
+# Health check                                                                 #
+################################################################################
+
+RUN apk add --no-cache fcgi
+
+HEALTHCHECK --interval=10s --timeout=3s \
+    CMD \
+    SCRIPT_NAME=/ping \
+    SCRIPT_FILENAME=/ping \
+    REQUEST_METHOD=GET \
+    cgi-fcgi -bind -connect 127.0.0.1:9000 || exit 1
