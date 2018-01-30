@@ -45,9 +45,10 @@ RUN mkdir /root/.ssh/ \
     >> /root/.ssh/known_hosts
 
 ################################################################################
-# Xdebug                                                                       #
+# Xdebug and php-ast                                                           #
 ################################################################################
 RUN apk add --no-cache $PHPIZE_DEPS \
     && pecl install xdebug \
-    && docker-php-ext-enable xdebug \
+    && pecl install ast \
+    && docker-php-ext-enable xdebug ast \
     && apk del $PHPIZE_DEPS
