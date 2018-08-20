@@ -5,4 +5,8 @@ set -o nounset
 
 IFS=$(printf '\n\t')
 
-tar -czpf "/backups/${BACKUP_NAME:-backup.tar.gz}" "${FILE}"
+BACKUP_PATH="/backups/${BACKUP_NAME:-backup.tar.gz}"
+
+rm "$BACKUP_PATH"
+
+tar -czpf "$BACKUP_PATH" "${FILE}"
