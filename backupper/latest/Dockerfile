@@ -1,7 +1,7 @@
 FROM alpine
 
-apk add --no-cache logrotate
+RUN apk add --no-cache logrotate
 
-COPY back-up.sh /
+COPY *.sh /
 
-CMD ["crond", "-f"]
+CMD ["run.sh"]

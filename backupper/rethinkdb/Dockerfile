@@ -10,8 +10,8 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys CF9BDC6F03D1F02B \
     && pip install "rethinkdb==$RETHINKDB_PACKAGE_VERSION" \
     && rm -rf /var/lib/apt/lists/*
 
-COPY back-up.sh /
+COPY *.sh /
 
 WORKDIR /
 
-CMD ["cron", "-f"]
+CMD ["run.sh"]
