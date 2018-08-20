@@ -14,4 +14,4 @@ COPY *.sh /
 
 WORKDIR /
 
-CMD ["run.sh"]
+CMD ["/run.sh"]
