@@ -14,4 +14,4 @@ if [ ! -f "$BACKUP_PATH" ]; then
     touch "$BACKUP_PATH"
 fi
 
-exec cron -f
+exec crond -f
