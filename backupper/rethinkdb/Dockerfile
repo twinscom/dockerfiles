@@ -8,6 +8,4 @@ COPY *.sh /
 
 WORKDIR /
 
-VOLUME /var/lib/
-
 CMD ["/run.sh"]
