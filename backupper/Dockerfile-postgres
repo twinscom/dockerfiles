@@ -1,0 +1,7 @@
+FROM postgres:alpine
+
+COPY run.sh rotate.sh /
+
+COPY back-up-postgres.sh /back-up.sh
+
+CMD ["/run.sh"]
