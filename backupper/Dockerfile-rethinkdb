@@ -1,0 +1,11 @@
+FROM python:alpine
+
+RUN pip install --no-cache-dir rethinkdb
+
+COPY run.sh rotate.sh /
+
+COPY back-up-rethinkdb.sh /back-up.sh
+
+WORKDIR /
+
+CMD ["/run.sh"]
